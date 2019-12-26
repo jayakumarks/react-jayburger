@@ -1,29 +1,16 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
-import Layout from "./components/Layout/Layout";
-import BurgerBuilder from "./containers/BurgerBuilder/BurgerBuilder";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
+import './index.css';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
 
-import "./style.css";
+const app = (
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>
+);
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      appName: "BURGER APPLICATION",
-      name: "Jayakumar"
-    };
-  }
-
-  render() {
-    return (
-      <div>
-        <Layout>
-          <BurgerBuilder/>
-        </Layout>
-      </div>
-    );
-  }
-}
-
-render(<App />, document.getElementById("root"));
+ReactDOM.render( app, document.getElementById( 'root' ) );
+registerServiceWorker();
